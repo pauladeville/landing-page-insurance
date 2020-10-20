@@ -55,13 +55,21 @@ nav li {
 }
 nav li span {
   display: inline-block;
-  background-color: #2d2640;
-  color: white;
-  padding: 7px 25px;
+  background-color: #fafafa;
+  color: #2d2640;
+  border: 1px solid #2d2640;
+  padding: 5px 25px;
   text-align: center;
+  transition: all 300ms ease-in-out;
 }
 nav li span:hover {
   font-weight: 700;
+  background-color: #2d2640;
+  color: white;
+  border: 1px solid #2d2640;
+}
+nav a {
+  color: #2b272f;
 }
 
 header {
@@ -89,14 +97,19 @@ header div h1::before {
 }
 header div a {
   display: inline-block;
-  background-color: white;
-  color: #2b272f;
-  padding: 7px 25px;
+  background-color: #2d2640;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 25px;
   text-align: center;
+  transition: all 300ms ease-in-out;
   margin-top: 20px;
 }
 header div a:hover {
   font-weight: 700;
+  background-color: white;
+  color: #2b272f;
+  border: 1px solid white;
 }
 header img {
   width: 80%;
@@ -121,7 +134,7 @@ section h2::before {
   position: absolute;
   top: 0px;
   width: 120px;
-  border-top: solid #95a9c6 1px;
+  border-top: solid #a99fc6 1px;
 }
 section table {
   width: 80%;
@@ -144,22 +157,24 @@ section table tr {
 aside {
   width: 73%;
   margin: 80px auto;
-  padding: 30px 50px;
+  padding: 50px 60px;
   position: relative;
 }
 aside h2 {
-  width: 40%;
-  font-size: 2rem;
+  width: 34%;
+  font-size: 2.5rem;
   line-height: 2.5rem;
   font-weight: normal;
 }
 aside a {
   width: 120px;
   display: inline-block;
-  background-color: white;
-  color: #2b272f;
-  padding: 7px 25px;
+  background-color: #2d2640;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 25px;
   text-align: center;
+  transition: all 300ms ease-in-out;
   position: absolute;
   top: 50%;
   right: 0;
@@ -167,34 +182,58 @@ aside a {
 }
 aside a:hover {
   font-weight: 700;
+  background-color: white;
+  color: #2b272f;
+  border: 1px solid white;
 }
 
-footer div {
+footer #social-container, footer table {
   width: 80%;
   margin: auto;
   padding: 30px 0 12px 0;
 }
-footer div:nth-child(1) {
+footer #social-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px #95a9c6;
+  border-bottom: solid 1px #cfcdd0;
 }
-footer div:nth-child(1) a {
+footer #social-container a {
   width: 118px;
   height: 18px;
 }
-footer div:nth-child(1) a :hover {
-  filter: brightness(50%);
+footer #social-container a :hover {
+  filter: brightness(30%);
 }
-footer div:nth-child(1) div {
+footer #social-container #social-icons {
   text-align: right;
   margin: 0;
+  padding: 20px 0 20px 0;
 }
-footer div:nth-child(1) div img {
+footer #social-container #social-icons img {
   padding: 0 5px;
   width: 20px;
   height: 20px;
+}
+footer table {
+  text-align: left;
+  font-size: 0.9rem;
+  padding-bottom: 50px;
+}
+footer table th {
+  color: #837d87;
+  text-transform: uppercase;
+  padding: 25px 0;
+}
+footer table td {
+  padding-bottom: 10px;
+}
+footer table td a {
+  color: #2b272f;
+  font-weight: 700;
+}
+footer table td a:hover {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */
