@@ -6,6 +6,13 @@ $dark-grayish-violet: hsl(273, 4%, 51%);
 $very-light-grey: hsl(0, 0%, 98%);
 
 $font-size: 16px;
+$breaking-points: (lg:1100px, md: 900px, sm: 500px, xs: 300px);
+
+@mixin mQ($min-size, $max-size) {
+    @media screen and (min-width: $min-size) and (max-width: $max-size) {
+        @content;
+    }
+}
 
 @mixin link-box ($bg-color, $font-color, $hover-bg-color, $hover-font-color) {
     display: inline-block;
@@ -76,6 +83,9 @@ nav {
         width: 118px;
         height: 18px;
     }
+    img.pattern-desktop {
+        float: left;
+    }
     ul {
         list-style-type: none;
         display: flex;
@@ -97,27 +107,76 @@ nav {
 
 header {
     height: 300px;
-    padding: 80px 10% 80px 10%;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 50px;
+    padding: 6% 10%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
     div {
         width: 100%;
         position: relative;
+        padding-right: 5%;
         h1 {
             font-size: 3.5rem;
             line-height: 3rem;
             padding: 50px 0 20px 0;
-            @include line-above(white);
+            @include mQ(map-get($breaking-points, sm), 9999px) {
+                @include line-above(white);
+            }
         }
         a {
             @include link-box($dark-violet, white, white, $very-dark-violet);
             margin-top: 20px;
         }
     }
-    img {
-        width: 80%;
-        min-width: 118px;
+    img.pattern-desktop {
+        position: relative;
+        top: -150px;
+        right: -15%;
+        width: 500px;
+        height: 500px;   
+        z-index: 5;
+        @include mQ(0px, map-get($breaking-points, sm)) {
+            display: none;
+        }
+    }
+    @include mQ(0, map-get($breaking-points, lg)) {
+        height: 400px;
+    }
+    @include mQ(0, map-get($breaking-points, sm)) {
+        text-align: center;
+        padding: 10%;
+        margin: 0;
+        div h1 {
+            font-size: 2.4rem;
+            line-height: 2.2rem;
+        }
+    }
+}
+
+#portrait-desktop {
+    width: 375px;
+    height: 500px;
+    position: absolute;
+    bottom: 150px;
+    right: 10%;
+    z-index: 3;
+    @include mQ(map-get($breaking-points, sm), map-get($breaking-points, lg)) {
+        width: 35%;
+        height: auto;
+    }
+
+    
+    @include mQ(0px, map-get($breaking-points, sm)) {
+        display: none;
+    }
+}
+    
+#portrait-mobile {
+    display: none;
+    @include mQ(0px, map-get($breaking-points, xs)) {
+        display: block;
+        width: 100%;
     }
 }
 
@@ -160,7 +219,7 @@ aside {
     padding: 50px 60px;
     position: relative;
     h2 {
-        width: 34%;
+        width: 350px;
         font-size: 2.5rem;
         line-height: 2.5rem;
         font-weight: normal;
@@ -173,6 +232,22 @@ aside {
         right: 0;
         transform: translate(-50%, -50%);
     }
+    @include mQ(map-get($breaking-points, xs), map-get($breaking-points, md)) {
+        h2, a {
+            display: block;
+            width: 100%;
+            display: block;
+            position: static;
+            transform: none;
+            margin: auto;
+            text-align: center;
+        }
+        a {
+            width: 120px;
+            margin-top: 30px;
+        }
+    }
+
 }
 
 footer {

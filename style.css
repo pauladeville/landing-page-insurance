@@ -42,6 +42,9 @@ nav img {
   width: 118px;
   height: 18px;
 }
+nav img.pattern-desktop {
+  float: left;
+}
 nav ul {
   list-style-type: none;
   display: flex;
@@ -74,26 +77,30 @@ nav a {
 
 header {
   height: 300px;
-  padding: 80px 10% 80px 10%;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 50px;
+  padding: 6% 10%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
 }
 header div {
   width: 100%;
   position: relative;
+  padding-right: 5%;
 }
 header div h1 {
   font-size: 3.5rem;
   line-height: 3rem;
   padding: 50px 0 20px 0;
 }
-header div h1::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  width: 120px;
-  border-top: solid white 1px;
+@media screen and (min-width: 500px) and (max-width: 9999px) {
+  header div h1::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    width: 120px;
+    border-top: solid white 1px;
+  }
 }
 header div a {
   display: inline-block;
@@ -111,9 +118,64 @@ header div a:hover {
   color: #2b272f;
   border: 1px solid white;
 }
-header img {
-  width: 80%;
-  min-width: 118px;
+header img.pattern-desktop {
+  position: relative;
+  top: -150px;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  z-index: 5;
+}
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  header img.pattern-desktop {
+    display: none;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 1100px) {
+  header {
+    height: 400px;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 500px) {
+  header {
+    text-align: center;
+    padding: 10%;
+    margin: 0;
+  }
+  header div h1 {
+    font-size: 2.4rem;
+    line-height: 2.2rem;
+  }
+}
+
+#portrait-desktop {
+  width: 375px;
+  height: 500px;
+  position: absolute;
+  bottom: 150px;
+  right: 10%;
+  z-index: 3;
+}
+@media screen and (min-width: 500px) and (max-width: 1100px) {
+  #portrait-desktop {
+    width: 35%;
+    height: auto;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 500px) {
+  #portrait-desktop {
+    display: none;
+  }
+}
+
+#portrait-mobile {
+  display: none;
+}
+@media screen and (min-width: 0px) and (max-width: 300px) {
+  #portrait-mobile {
+    display: block;
+    width: 100%;
+  }
 }
 
 section {
@@ -161,7 +223,7 @@ aside {
   position: relative;
 }
 aside h2 {
-  width: 34%;
+  width: 350px;
   font-size: 2.5rem;
   line-height: 2.5rem;
   font-weight: normal;
@@ -185,6 +247,21 @@ aside a:hover {
   background-color: white;
   color: #2b272f;
   border: 1px solid white;
+}
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  aside h2, aside a {
+    display: block;
+    width: 100%;
+    display: block;
+    position: static;
+    transform: none;
+    margin: auto;
+    text-align: center;
+  }
+  aside a {
+    width: 120px;
+    margin-top: 30px;
+  }
 }
 
 footer #social-container, footer table {
