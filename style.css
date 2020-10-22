@@ -14,7 +14,7 @@ a, li {
   text-transform: uppercase;
 }
 
-h1, h2, section h2, section th, aside h2 {
+h1, h2, section h2, section h3, aside h2 {
   font-family: "DM Serif Display";
 }
 
@@ -27,49 +27,115 @@ header, aside {
   color: white;
 }
 
-nav {
+#nav-desktop {
   width: 100%;
+  position: relative;
 }
-nav div {
+#nav-desktop div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  height: 60px;
+  height: 75px;
   margin: auto;
 }
-nav img {
+#nav-desktop img {
   width: 118px;
   height: 18px;
 }
-nav ul {
+#nav-desktop ul {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-nav li {
+#nav-desktop li {
   text-align: center;
   display: inline-block;
-  padding: 15px;
+  padding-left: 15px;
 }
-nav li span {
+#nav-desktop li span a {
   display: inline-block;
-  background-color: #fafafa;
   color: #2d2640;
   border: 1px solid #2d2640;
   padding: 5px 25px;
   text-align: center;
   transition: all 300ms ease-in-out;
 }
-nav li span:hover {
-  font-weight: 700;
+#nav-desktop li span a:hover {
   background-color: #2d2640;
-  color: white;
-  border: 1px solid #2d2640;
+  color: #fafafa;
 }
-nav a {
+#nav-desktop li span a:hover {
+  font-weight: normal;
+}
+#nav-desktop li:hover {
+  font-weight: 700;
+}
+#nav-desktop #open-nav, #nav-desktop #close-nav, #nav-desktop #mobile-nav {
+  display: none;
+}
+#nav-desktop a {
   color: #2b272f;
+}
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  #nav-desktop div {
+    width: 90%;
+  }
+  #nav-desktop li {
+    padding-left: 10px;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 500px) {
+  #nav-desktop li {
+    display: none;
+  }
+  #nav-desktop #open-nav {
+    display: block;
+  }
+  #nav-desktop #open-nav img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#nav-mobile ul {
+  padding-top: 50px;
+  width: 100%;
+  text-align: center;
+  height: 450px;
+  background-color: #2b272f;
+}
+@media screen and (min-width: 0) and (max-width: 500px) {
+  #nav-mobile ul {
+    background-image: url("images/bg-pattern-mobile-nav.svg");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+#nav-mobile li {
+  padding-bottom: 25px;
+}
+#nav-mobile li span a {
+  display: inline-block;
+  color: #fafafa;
+  border: 1px solid #fafafa;
+  padding: 5px 25px;
+  text-align: center;
+  transition: all 300ms ease-in-out;
+}
+#nav-mobile li span a:hover {
+  background-color: #fafafa;
+  color: #2b272f;
+}
+#nav-mobile a {
+  color: #fafafa;
+  font-weight: 700;
+}
+
+.active {
+  transform: translateY(0);
 }
 
 header {
@@ -101,7 +167,6 @@ header div h1 {
 }
 header div a {
   display: inline-block;
-  background-color: #2d2640;
   color: white;
   border: 1px solid white;
   padding: 5px 25px;
@@ -110,10 +175,8 @@ header div a {
   margin-top: 30px;
 }
 header div a:hover {
-  font-weight: 700;
   background-color: white;
-  color: #2b272f;
-  border: 1px solid white;
+  color: #2d2640;
 }
 @media screen and (min-width: 300px) and (max-width: 1100px) {
   header {
@@ -152,7 +215,7 @@ section h2::before {
   position: absolute;
   top: 0%;
   width: 120px;
-  border-top: solid #2d2640 1px;
+  border-top: solid #B9B3D6 1px;
 }
 @media screen and (min-width: 0px) and (max-width: 500px) {
   section h2::before {
@@ -160,22 +223,32 @@ section h2::before {
     transform: translate(-50%, -50%);
   }
 }
-section table {
+section #values_text-blocks {
   width: 80%;
   margin: auto;
   text-align: left;
-  padding: 20px 0 20px 0;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
 }
-section table img {
+@media screen and (min-width: 0) and (max-width: 500px) {
+  section #values_text-blocks {
+    display: block;
+    text-align: center;
+  }
+}
+section #values_text-blocks img {
   width: 50px;
+  padding-top: 50px;
 }
-section table th {
-  padding: 20px 0;
+section #values_text-blocks h3 {
+  padding: 15px 0;
   color: #2b272f;
 }
-section table tr {
+section #values_text-blocks p {
   color: #837d87;
-  margin: 50px;
+  line-height: 1.5rem;
 }
 @media screen and (min-width: 0px) and (max-width: 500px) {
   section {
@@ -186,7 +259,7 @@ section table tr {
 
 aside {
   width: 73%;
-  margin: 80px auto;
+  margin: 80px auto 150px auto;
   padding: 50px 60px;
   position: relative;
   overflow: hidden;
@@ -203,7 +276,6 @@ aside h2 {
 aside a {
   width: 120px;
   display: inline-block;
-  background-color: #2d2640;
   color: white;
   border: 1px solid white;
   padding: 5px 25px;
@@ -215,12 +287,10 @@ aside a {
   transform: translate(-50%, -50%);
 }
 aside a:hover {
-  font-weight: 700;
   background-color: white;
-  color: #2b272f;
-  border: 1px solid white;
+  color: #2d2640;
 }
-@media screen and (min-width: 300px) and (max-width: 900px) {
+@media screen and (min-width: 0) and (max-width: 900px) {
   aside {
     background-image: url("images/bg-pattern-how-we-work-mobile.svg");
     background-position: top right;
@@ -240,7 +310,18 @@ aside a:hover {
     margin-top: 30px;
   }
 }
+@media screen and (min-width: 0) and (max-width: 500px) {
+  aside {
+    padding: 80px 35px;
+    margin: 80px auto 130px auto;
+  }
+}
 
+footer {
+  background-image: url("images/bg-pattern-footer-desktop.svg");
+  background-position: top left;
+  background-repeat: no-repeat;
+}
 footer #social-container, footer table {
   width: 80%;
   margin: auto;
@@ -266,28 +347,51 @@ footer #social-container #social-icons {
 }
 footer #social-container #social-icons img {
   padding: 0 5px;
-  width: 20px;
-  height: 20px;
 }
-footer table {
+footer #footer-links-container {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: left;
   font-size: 0.9rem;
-  padding-bottom: 50px;
+  padding: 15px 0 50px 0;
 }
-footer table th {
+footer #footer-links-container p {
   color: #837d87;
   text-transform: uppercase;
   padding: 25px 0;
+  font-weight: 700;
 }
-footer table td {
+footer #footer-links-container ul {
+  list-style-type: none;
+}
+footer #footer-links-container li {
   padding-bottom: 10px;
 }
-footer table td a {
+footer #footer-links-container li a {
   color: #2b272f;
   font-weight: 700;
 }
-footer table td a:hover {
+footer #footer-links-container li a:hover {
   text-decoration: underline;
+}
+@media screen and (min-width: 0) and (max-width: 900px) {
+  footer #footer-links-container {
+    display: block;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 900px) {
+  footer {
+    background-image: url("images/bg-pattern-footer-mobile.svg");
+  }
+  footer #social-container {
+    flex-direction: column;
+  }
+  footer #social-container img[src*=logo] {
+    margin: 50px 0 15px 0;
+  }
 }
 
 #pattern-desktop-left {
