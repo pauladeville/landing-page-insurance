@@ -72,7 +72,7 @@ header, aside {
 #nav-desktop li:hover {
   font-weight: 700;
 }
-#nav-desktop #open-nav, #nav-desktop #close-nav, #nav-desktop #mobile-nav {
+#nav-desktop #open-nav, #nav-desktop #mobile-nav {
   display: none;
 }
 #nav-desktop a {
@@ -105,14 +105,10 @@ header, aside {
   text-align: center;
   height: 450px;
   background-color: #2b272f;
-}
-@media screen and (min-width: 0) and (max-width: 500px) {
-  #nav-mobile ul {
-    background-image: url("images/bg-pattern-mobile-nav.svg");
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+  background-image: url("images/bg-pattern-mobile-nav.svg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 #nav-mobile li {
   padding-bottom: 25px;
@@ -135,7 +131,11 @@ header, aside {
 }
 
 .active {
-  transform: translateY(0);
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
 
 header {

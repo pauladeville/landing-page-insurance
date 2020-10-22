@@ -91,7 +91,7 @@ header, aside {
             font-weight: 700;
         }
     }
-    #open-nav, #close-nav, #mobile-nav {
+    #open-nav, #mobile-nav {
         display: none;
     }
     a {
@@ -126,12 +126,10 @@ header, aside {
         text-align: center;
         height: 450px;
         background-color: $very-dark-violet;
-        @include mQ(0, map-get($breaking-points, sm)) {
-            background-image: url("images/bg-pattern-mobile-nav.svg");
-            background-position: bottom right;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
+        background-image: url("images/bg-pattern-mobile-nav.svg");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
     li {
         padding-bottom: 25px;
@@ -147,7 +145,11 @@ header, aside {
 }
 
 .active {
-    transform: translateY(0);
+    display: block;
+}
+
+.hidden {
+    display: none;
 }
 
 header {
